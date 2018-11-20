@@ -1,4 +1,4 @@
-package com.simbirsoft.qaa.course;
+package com.simbirsoft.qaa.course.task0;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
