@@ -1,6 +1,5 @@
 package com.simbirsoft.qaa.course.task1.Tests;
 
-import com.simbirsoft.qaa.course.task1.ClipboardHelper;
 import com.simbirsoft.qaa.course.task1.Pages.ClipboardJSPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -12,33 +11,28 @@ import org.testng.annotations.Test;
 
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.io.IOException;
-import java.util.concurrent.TimeUnit;
+
+import static com.simbirsoft.qaa.course.task1.Helpers.ClipboardHelper.getTextFromClipboard;
 
 public class CopyingIntoClipBoardWithButton {
 
     private static WebDriver driver;
-    private static ClipboardHelper clipboardHelper;
     private static ClipboardJSPage clipboardJSPage;
 
     @BeforeMethod
     public void beforeMethod() {
         driver = new ChromeDriver();
         driver.get("https://clipboardjs.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
-        clipboardHelper = new ClipboardHelper();
-
+        clipboardJSPage = PageFactory.initElements(driver, ClipboardJSPage.class);
     }
 
     @Test
-    public void searchTest() throws IOException, UnsupportedFlavorException {
-
-        clipboardJSPage = PageFactory.initElements(driver, ClipboardJSPage.class);
-
+    public void copyingIntoClipboardTest() throws IOException, UnsupportedFlavorException {
         String textFromBox = clipboardJSPage.getValueFromTextBox();
 
         clipboardJSPage.pressCopyButton();
-        String textFromButton = clipboardHelper.getTextFromClipboard();
+        String textFromButton = getTextFromClipboard();
 
         Assert.assertEquals(textFromBox, textFromButton);
     }

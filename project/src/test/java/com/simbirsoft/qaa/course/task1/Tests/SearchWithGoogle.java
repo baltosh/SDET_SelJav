@@ -7,8 +7,6 @@ import org.testng.Assert;
 import org.testng.annotations.*;
 import org.openqa.selenium.support.PageFactory;
 
-import java.util.concurrent.TimeUnit;
-
 public class SearchWithGoogle {
 
     private static WebDriver driver;
@@ -18,10 +16,8 @@ public class SearchWithGoogle {
     public void beforeMethod() {
         driver = new ChromeDriver();
         driver.get("http://www.google.com");
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 
         googleSearchPage = PageFactory.initElements(driver, GoogleSearchPage.class);
-
     }
 
     @Test
