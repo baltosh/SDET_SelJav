@@ -7,13 +7,13 @@ import org.openqa.selenium.WebElement;
 
 public class ClipboardJSPage {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
-    @FindBy(xpath = "//div[@class='input-group']/input[@id='foo']")
+    @FindBy(css = ".input-group #foo")
     @CacheLookup
     WebElement textBox;
 
-    @FindBy(xpath = "//span[@class='input-group-button']/button[@class='btn']")
+    @FindBy(css = ".input-group-button .btn")
     @CacheLookup
     WebElement copyButton;
 

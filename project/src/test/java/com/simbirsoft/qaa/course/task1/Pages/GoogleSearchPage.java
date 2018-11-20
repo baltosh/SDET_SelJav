@@ -12,17 +12,17 @@ import java.util.List;
 
 public class GoogleSearchPage {
 
-    private WebDriver driver;
+    public WebDriver driver;
 
-    @FindBy(name = "q")
+    @FindBy(css = "[type = 'text']")
     @CacheLookup
     WebElement searchBox;
 
-    @FindBy(name = "btnK")
+    @FindBy(css = "[type = 'submit']")
     @CacheLookup
     WebElement searchButton;
 
-    @FindBy(css = "div#search div[data-hveid]")
+    @FindBy(css = "#search div[data-hveid]")
     @CacheLookup
     List<WebElement> searchResultsElements;
 
