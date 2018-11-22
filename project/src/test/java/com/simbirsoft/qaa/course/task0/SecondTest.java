@@ -1,4 +1,4 @@
-package com.simbirsoft.qaa.course;
+package com.simbirsoft.qaa.course.task0;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -34,7 +34,7 @@ public class SecondTest {
         copyButton.click();
         Transferable contents = Toolkit.getDefaultToolkit().getSystemClipboard().getContents(null);
 
-        String textFromButton = (String)contents.getTransferData(DataFlavor.stringFlavor);
+        String textFromButton = (String) contents.getTransferData(DataFlavor.stringFlavor);
 
         WebElement textBox = driver.findElement(By.xpath("//div[@class='input-group']/input[@id='foo']"));
         String textFromBox = textBox.getAttribute("value");

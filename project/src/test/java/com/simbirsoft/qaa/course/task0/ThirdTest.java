@@ -1,4 +1,4 @@
-package com.simbirsoft.qaa.course;
+package com.simbirsoft.qaa.course.task0;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -26,15 +26,15 @@ public class ThirdTest {
     }
 
     @Test
-    public void pasteTest(){
+    public void pasteTest() {
 
         WebElement searchInputElement = driver.findElement(By.id("lst-ib"));
 
         String searchQuery = "Sad Pablo Escobar";
         StringSelection content = new StringSelection(searchQuery);
-        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(content,null);
+        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(content, null);
 
-        searchInputElement.sendKeys(Keys.CONTROL+"v");
+        searchInputElement.sendKeys(Keys.CONTROL + "v");
 
         String textFromSIE = searchInputElement.getAttribute("value");
 

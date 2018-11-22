@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
+<suite name="My test suite">
+    <test name="testing">
+
+        <parameter name="query" value="Автоматизация тестирования"/>
+
+        <classes>
+            <class name="com.simbirsoft.qaa.course.task1.Tests.SearchWithGoogle" />
+        </classes>
+    </test>
+</suite>
