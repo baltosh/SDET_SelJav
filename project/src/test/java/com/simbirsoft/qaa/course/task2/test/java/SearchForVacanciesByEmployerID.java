@@ -1,6 +1,6 @@
 package com.simbirsoft.qaa.course.task2.test.java;
 
-import com.simbirsoft.qaa.course.task2.main.java.ConstructURL;
+import com.simbirsoft.qaa.course.task2.main.java.deserialization.Vacancies;
 import com.simbirsoft.qaa.course.task2.main.java.deserialization.VacancyInfo;
 import io.restassured.RestAssured;
 import io.restassured.specification.RequestSpecification;
@@ -13,16 +13,18 @@ import static com.simbirsoft.qaa.course.task2.main.java.RequestsToHH.RequestVaca
 public class SearchForVacanciesByEmployerID {
 
     @Test
-    @Parameters({"APIurl", "employerID"})
-    public void searchVacancies(String APIurl, String employerID) {
+    @Parameters({"APIurl", "parameterName", "employerID", "responseCode"})
+    public void searchVacancies(String APIurl, String parameterName,
+                                String employerID, String responseCode) {
         RequestSpecification request = RestAssured.given();
         request.header("Content-Type", "application/json");
 
-        VacancyInfo[] vacancies = RequestByEmployerID(request, ConstructURL.VacanciesByEmployerID(APIurl, employerID));
+        Vacancies vacancies = RequestByEmployerID(Vacancies.class, request,
+                APIurl, parameterName, employerID, responseCode);
 
         for (VacancyInfo vacancy :
-                vacancies) {
-            Assert.assertEquals(vacancy.employer.id, employerID, "");
+                vacancies.getItems()) {
+            Assert.assertEquals(vacancy.employer.id, employerID);
         }
     }
 
