@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="SearchForVacanciesByEmployerID">
+    <test name="EmployerID=1838">
+        <parameter name="APIurl" value="https://api.hh.ru/vacancies/"/>
+        <parameter name="parameterName" value="employer_id"/>
+        <parameter name="employerID" value="1838"/>
+        <parameter name="responseCode" value="200"/>
+        <classes>
+            <class name="com.simbirsoft.qaa.course.task2.test.java.SearchForVacanciesByEmployerID"/>
+        </classes>
+    </test>
+</suite>
