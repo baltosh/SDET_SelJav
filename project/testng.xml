@@ -1,11 +1,15 @@
 <!DOCTYPE suite SYSTEM "http://beust.com/testng/testng-1.0.dtd" >
 <suite name="My test suite">
-    <test name="testing">
-
-        <parameter name="query" value="Автоматизация тестирования"/>
-
+    <test name="com.simbirsoft.qaa.course.task3.Tests.SearchWithGoogle" parallel="methods" thread-count="2">
         <classes>
-            <class name="com.simbirsoft.qaa.course.task1.Tests.SearchWithGoogle" />
+            <class name="com.simbirsoft.qaa.course.task3.Tests.SearchWithGoogle">
+                <methods>
+                    <parameter name="query" value="Автоматизация тестирования1"/>
+                    <include name="searchTest"/>
+                    <include name="copyingIntoClipboardTest"/>
+
+                </methods>
+            </class>
         </classes>
     </test>
 </suite>

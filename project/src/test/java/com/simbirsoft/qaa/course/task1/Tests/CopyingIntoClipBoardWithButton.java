@@ -23,8 +23,6 @@ public class CopyingIntoClipBoardWithButton {
     public void beforeMethod() {
         driver = new ChromeDriver();
         driver.get("https://clipboardjs.com");
-
-        clipboardJSPage = PageFactory.initElements(driver, ClipboardJSPage.class);
     }
 
     @Test
